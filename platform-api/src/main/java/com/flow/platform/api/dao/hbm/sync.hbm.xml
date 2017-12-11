@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.flow.platform.api.domain">
+  <class name="com.flow.platform.api.domain.sync.SyncItem" table="sync">
+
+    <composite-id name="key" class="com.flow.platform.api.domain.sync.SyncKey">
+      <key-property name="clientId" type="string" column="client_id"/>
+      <key-property name="repo" type="string" length="100" column="repo"/>
+    </composite-id>
+
+    <property name="status" column="sync_status" length="20" not-null="true">
+      <type name="org.hibernate.type.EnumType">
+        <param name="enumClass">com.flow.platform.api.domain.sync.SyncStatus</param>
+        <param name="useNamed">true</param>
+      </type>
+    </property>
+
+    <property name="syncTime" type="java.time.ZonedDateTime" update="true">
+      <column name="sync_time" sql-type="timestamp" default="CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"/>
+    </property>
+  </class>
+</hibernate-mapping>

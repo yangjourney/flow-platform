@@ -27,6 +27,7 @@ import java.util.List;
 /**
  * @author yang
  */
+@Deprecated
 public class Sync {
 
     /**
