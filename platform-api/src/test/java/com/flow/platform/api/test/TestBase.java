@@ -27,6 +27,7 @@ import com.flow.platform.api.config.WebConfig;
 import com.flow.platform.api.dao.CredentialDao;
 import com.flow.platform.api.dao.FlowDao;
 import com.flow.platform.api.dao.MessageSettingDao;
+import com.flow.platform.api.dao.SyncDao;
 import com.flow.platform.api.dao.YmlDao;
 import com.flow.platform.api.dao.job.JobDao;
 import com.flow.platform.api.dao.job.JobNumberDao;
@@ -138,6 +139,9 @@ public abstract class TestBase {
 
     @Autowired
     protected MessageSettingDao messageSettingDao;
+
+    @Autowired
+    protected SyncDao syncDao;
 
     @Autowired
     protected NodeService nodeService;
@@ -304,6 +308,7 @@ public abstract class TestBase {
         permissionDao.deleteAll();
         userFlowDao.deleteAll();
         jobNumberDao.deleteAll();
+        syncDao.deleteAll();
     }
 
     @After

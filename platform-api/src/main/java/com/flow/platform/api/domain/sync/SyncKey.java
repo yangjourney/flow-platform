@@ -16,10 +16,12 @@
 
 package com.flow.platform.api.domain.sync;
 
+import com.flow.platform.domain.Jsonable;
+
 /**
  * @author yang
  */
-public class SyncKey {
+public class SyncKey extends Jsonable {
 
     /**
      * Target client id

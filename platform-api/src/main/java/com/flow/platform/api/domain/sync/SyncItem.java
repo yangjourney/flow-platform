@@ -16,19 +16,20 @@
 
 package com.flow.platform.api.domain.sync;
 
+import com.flow.platform.domain.Jsonable;
 import java.time.ZonedDateTime;
 
 /**
  * @author yang
  */
-public class SyncItem {
+public class SyncItem extends Jsonable {
 
     private SyncKey key;
 
     /**
      * Sync status
      */
-    private SyncStatus status;
+    private SyncStatus status = SyncStatus.PENDING;
 
     /**
      * Time to start sync
